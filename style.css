@@ -1,0 +1,274 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: #000; /* Preto */
+    --secondary-color: #fff; /* Branco */
+    --accent-color: #a00; /* Vermelho/Bordô para detalhes */
+    --light-gray: #f8f8f8;
+    --medium-gray: #eee;
+    --dark-gray: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: var(--primary-color);
+}
+
+header {
+    background-color: var(--secondary-color); /* Fundo branco */
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--medium-gray);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav img {
+    height: 40px; /* Ajuste o tamanho do logo conforme necessário */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Seção Hero */
+#hero {
+    background-color: var(--light-gray); /* Cor de fundo provisória */
+    background-image: url('https://www.tmshoes.com.br/assets/images/banner.jpg'); /* Exemplo de imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    color: var(--secondary-color); /* Texto branco para contraste */
+    text-align: center;
+    padding: 8rem 1rem; /* Aumentar o padding para o banner */
+    height: 400px; /* Altura fixa para o banner */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#hero p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* Seções de Categorias e Coleção */
+#categories, #collection, #about, #contact {
+    max-width: 1200px;
+    margin: 4rem auto; /* Aumentar margem entre seções */
+    padding: 0 1rem;
+}
+
+.category-grid, .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.category-item, .product-item {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--medium-gray);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover, .product-item:hover {
+    transform: translateY(-5px);
+}
+
+.category-item img, .product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.category-item h3, .product-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-item p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Seção Sobre Nós e Contato */
+#about p, #contact p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--dark-gray); /* Fundo cinza escuro */
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem 0; /* Aumentar padding do rodapé */
+    margin-top: 4rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.shoe-card {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--medium-gray);
+    padding: 1rem;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.shoe-card img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Limitar altura da imagem */
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+}
+
+.shoe-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.shoe-card p {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.1rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+}
+
+#shoes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    #hero {
+        padding: 4rem 1rem;
+        height: 300px;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .category-grid, .product-grid, #shoes-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav img {
+        margin-bottom: 1rem;
+    }
+
+    #hero {
+        height: 250px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+}
