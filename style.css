@@ -259,7 +259,7 @@ footer {
     nav img {
         margin-bottom: 1rem;
     }
-
+    
     #hero {
         height: 250px;
     }
@@ -267,8 +267,38 @@ footer {
     #hero h1 {
         font-size: 2rem;
     }
-
+    
     #hero p {
         font-size: 1rem;
     }
+}
+ 
+.shoe-numeration {
+    display: flex; /* Adicionado para organizar os spans em linha */
+    flex-wrap: wrap; /* Permite que os spans quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os spans horizontalmente */
+    margin: 0 auto;
+    text-align: center; 
+}
+
+.numeration-box {
+    display: inline-block;
+    border: 1px solid #c4c4c4;
+    padding: 5px 8px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.numeration-box:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
