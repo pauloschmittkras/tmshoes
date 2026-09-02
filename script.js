@@ -8,14 +8,37 @@ async function fetchAndParseCSV(url) {
 
 function parseCSV(csvText) {
     const lines = csvText.trim().split('\n');
-    const headers = lines[0].split(',');
+    const headers = lines[0].split(',').map(header => header.trim());
     const data = [];
 
     for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split(',');
+        const line = lines[i];
+        const values = [];
+        let inQuote = false;
+        let currentField = '';
+
+        for (let j = 0; j < line.length; j++) {
+            const char = line[j];
+
+            if (char === '"') {
+                inQuote = !inQuote;
+                // Handle escaped quotes: if the next char is also a quote, it\'s an escaped quote
+                if (inQuote && line[j + 1] === '"') {
+                    currentField += '"';
+                    j++; // Skip the next quote
+                }
+            } else if (char === ',' && !inQuote) {
+                values.push(currentField.trim());
+                currentField = '';
+            } else {
+                currentField += char;
+            }
+        }
+        values.push(currentField.trim()); // Add the last field
+
         const row = {};
         for (let j = 0; j < headers.length; j++) {
-            row[headers[j].trim()] = values[j].trim();
+            row[headers[j]] = values[j] !== undefined ? values[j].trim() : ''; // Handle cases where values might be missing
         }
         data.push(row);
     }
@@ -43,7 +66,7 @@ function displayShoes(shoes, containerId) {
             <h3>${shoe.Nome}</h3>
             <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong><strong>Marca:</strong> ${shoe.Marca}</p>
             <p><strong>Cor:</strong> ${shoe.Cor}</p>
-            <p><strong>Numeração dsiponível:</strong></p>
+            <p><strong>Numeração disponível:</strong></p>
             <p class="shoe-numeration">${shoe.Numeracao.split(';').map(num => `<span class="numeration-box">${num.trim()}</span>`).join('')}</p>
             <p><strong>Descrição:</strong> ${shoe.Descricao}</p>
         `;
