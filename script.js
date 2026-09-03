@@ -68,7 +68,7 @@ function displayShoes(shoes, containerId) {
             <p><strong>Cor:</strong> ${shoe.Cor}</p>
             <p><strong>Numeração disponível:</strong></p>
             <p class="shoe-numeration">${shoe.Numeracao.split(';').map(num => `<span class="numeration-box">${num.trim()}</span>`).join('')}</p>
-            <p><strong>Descrição:</strong> ${shoe.Descricao}</p>
+            <!-- <p><strong>Descrição:</strong> ${shoe.Descricao}</p> -->
         `;
         container.appendChild(shoeCard);
     });
@@ -96,5 +96,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Para a página principal ou outros, exibir todos os calçados
         filteredShoes = allShoes;
     }
+
+    // Ordenar os calçados por nome antes de exibir
+    if (filteredShoes.length > 0) {
+        filteredShoes.sort((a, b) => {
+            const nameA = a.Nome.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.Nome.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0; // names must be equal
+        });
+    }
+
     displayShoes(filteredShoes, containerId);
 });
