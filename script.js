@@ -114,4 +114,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     displayShoes(filteredShoes, containerId);
+
+    // Ajusta o padding-top do body com base na altura do cabeçalho
+    function adjustBodyPadding() {
+        const header = document.querySelector("header");
+        if (header) {
+            document.body.style.paddingTop = `${header.offsetHeight}px`;
+        }
+    }
+
+    // Chama a função ao carregar a página e ao redimensionar
+    adjustBodyPadding();
+    window.addEventListener("resize", adjustBodyPadding);
 });
