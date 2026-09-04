@@ -22,10 +22,10 @@ header {
     top: 0; /* Alinha ao topo */
     width: 100%; /* Ocupa toda a largura */
     z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-    background-color: var(--secondary-color); /* Fundo branco */
+    background-color: rgba(255, 192, 203, 0.85); /* Rosa suave com 50% de transparência */
     padding: 1rem 0;
     border-bottom: 1px solid var(--medium-gray);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(231, 109, 166, 0.842);
 }
 
 nav {
