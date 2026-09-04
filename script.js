@@ -64,10 +64,11 @@ function displayShoes(shoes, containerId) {
         shoeCard.innerHTML = `
             <img src="${shoe.Imagem}" alt="${shoe.Nome}">
             <h3>${shoe.Nome}</h3>
-            <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong><strong>Marca:</strong> ${shoe.Marca}</p>
-            <p><strong>Cor:</strong> ${shoe.Cor}</p>
+            <p><strong>COD:</strong> ${shoe.COD}<strong>&emsp;</strong>
+                <strong>Marca:</strong> ${shoe.Marca}<strong>&emsp;</strong>
+                <strong>Cor:</strong> ${shoe.Cor}</p>
             <p><strong>Numeração disponível:</strong></p>
-            <p class="shoe-numeration">${shoe.Numeracao.split(';').map(num => `<span class="numeration-box">${num.trim()}</span>`).join('')}</p>
+            <p class="shoe-numeration">${shoe.Numeracao && shoe.Numeracao.trim() !== '' ? shoe.Numeracao.split(';').map(num => `<span class="numeration-box">${num.trim()}</span>`).join('') : 'Indisponível!'}</p>
             <!-- <p><strong>Descrição:</strong> ${shoe.Descricao}</p> -->
         `;
         container.appendChild(shoeCard);
