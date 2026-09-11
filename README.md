@@ -70,3 +70,7 @@ Para que o script funcione corretamente, você precisará configurar o link da s
     python download_products.py
     ```
 Este script irá baixar os dados da planilha e atualizar os arquivos HTML do site com as informações dos produtos.
+
+## Site
+
+* https://pauloschmittkras.github.io/tmshoes/
