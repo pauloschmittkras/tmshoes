@@ -15,7 +15,6 @@ body {
     box-sizing: border-box;
     line-height: 1.6;
     color: var(--primary-color);
-    background-image: url('imagens/logo.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover; /* Ajuste para cobrir toda a área */
